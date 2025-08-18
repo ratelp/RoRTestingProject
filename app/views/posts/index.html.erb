@@ -1,0 +1,20 @@
+<div class="posts-container">
+  <div class="posts-header">
+    <%= link_to "View Raw API", api_v1_posts_path, class: "api-link", target: "_blank" %>
+    <h1>Posts from API</h1>
+    <%= link_to "Add New Post", new_api_post_path, class: "new-post-link" %>
+  </div>
+
+  <div class="posts-list">
+    <% if @posts.present? && @posts.any? %>
+      <% @posts.each do |post| %>
+        <div class="post-card">
+          <h2 class="post-title"><%= post['title']&.titleize %></h2>
+          <p class="post-body"><%= post['body']&.truncate(150) %></p>
+        </div>
+      <% end %>
+    <% else %>
+      <p class="no-posts-message">Could not fetch posts or no posts found.</p>
+    <% end %>
+  </div>
+</div>

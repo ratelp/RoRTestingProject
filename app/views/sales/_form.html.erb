@@ -1,0 +1,27 @@
+<%= form_with(model: sale, class: "sale-form") do |form| %>
+  <% if sale.errors.any? %>
+    <div id="error_explanation" class="error-messages" data-turbo-cache="false">
+      <h2><%= pluralize(sale.errors.count, "error") %> prohibited this sale from being saved:</h2>
+
+      <ul>
+        <% sale.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :product_id %>
+    <%= form.collection_select :product_id, @products, :id, :name, { prompt: "Select a Product" } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity, in: 1..100, value: form.object.quantity || 1 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Save Sale", class: "action-button save-button" %>
+  </div>
+<% end %>

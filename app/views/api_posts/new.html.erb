@@ -1,0 +1,34 @@
+<div class="api-post-form-container">
+  <h1>New Post via API</h1>
+
+  <%= form_with(model: @post, url: api_posts_path, class: "api-post-form") do |form| %>
+    <% if @post.errors.any? %>
+      <div id="error_explanation" class="error-messages" data-turbo-cache="false">
+        <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+        <ul>
+          <% @post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </div>
+
+    <div class="field">
+      <%= form.label :body %>
+      <%= form.text_area :body %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Create Post via API", class: "action-button save-button" %>
+    </div>
+  <% end %>
+
+  <div class="back-link-container">
+    <%# Assuming an index page exists at api_posts_path. Change if needed. %>
+    <%= link_to "← Back to posts", posts_path, class: "back-link" %>
+  </div>

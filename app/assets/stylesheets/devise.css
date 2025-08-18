@@ -1,0 +1,175 @@
+.container {
+    max-width: 450px; /* Sets a maximum width for the container */
+    margin: 3rem auto; /* Centers the container on the page vertically and horizontally */
+    padding: 2rem; /* Adds space inside the container */
+    text-align: center;
+    background-color: #f4f4f4; 
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* A subtle shadow consistent with other pages */
+}
+
+/*
+ * Modern Form Styling
+ * These styles target the form elements within the Devise container
+ * to create a clean and user-friendly interface.
+ */
+
+/* Align labels to the left for better readability */
+.container .field {
+  margin-bottom: 1.25rem;
+  text-align: left;
+}
+
+.container label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Style for text inputs */
+.container input[type="email"],
+.container input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Ensures padding doesn't affect final width */
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Focus state for inputs, using the app's primary color */
+.container input[type="email"]:focus,
+.container input[type="password"]:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+/* Primary action button styling, consistent with cta-button */
+.container .actions input[type="submit"] {
+  width: 100%;
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Destructive action button for account cancellation */
+.container .deleteButton {
+  width: 100%;
+  padding: 12px 20px;
+  background-color: #dc3545; /* A standard danger red */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out; 
+}
+.container .actions input[type="submit"]:hover {
+  background-color: #0056b3; /* A darker shade for hover state */
+}
+
+.container .deleteButton:hover {
+  background-color: #c82333; /* A darker red for hover state */
+}
+
+/* Styling for the shared links (e.g., "Forgot your password?") */
+.container a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/*
+ * Custom Checkbox Styling
+ * Styles for the "Remember me" checkbox to give it a modern, circular look.
+ */
+
+/* The container for the checkbox and label */
+.container .field > input[type="checkbox"] + label {
+  position: relative;
+  cursor: pointer;
+  padding-left: 30px; /* Space for the custom circle */
+  font-weight: 500; /* Make it less prominent than main labels */
+  color: #555;
+  display: inline-flex;
+  align-items: center;
+  height: 22px; /* Vertically align with other elements */
+  user-select: none; /* Prevent text selection on click */
+}
+
+/* Hide the default browser checkbox */
+.container .field > input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* The custom circular checkbox */
+.container .field > input[type="checkbox"] + label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 10px;
+  width: 10px;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 50%; /* This makes it a circle */
+  transition: all 0.2s ease-in-out;
+}
+
+/* Style when the checkbox is checked */
+.container .field > input[type="checkbox"]:checked + label::before {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+/* The inner dot that appears when checked */
+.container .field > input[type="checkbox"]:checked + label::after {
+  content: '';
+  position: absolute;
+  left: 3.3px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+  background: white;
+}
+
+/* Focus style for accessibility */
+.container .field > input[type="checkbox"]:focus-visible + label::before {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Section for cancelling account on the edit page */
+.cancel-account-section {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.cancel-account-section h3 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* Styling for the "Back" link */
+.container .back-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+}

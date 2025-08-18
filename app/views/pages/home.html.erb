@@ -1,0 +1,36 @@
+<main class="home-page">
+  <header class="hero-section">
+    <h1>Welcome to Testando App</h1>
+    <p>Your journey to something amazing starts here.</p>
+    <% unless user_signed_in? %>
+      <%= link_to 'Sign Up Now', new_user_registration_path, class: 'cta-button' %>
+    <% end %>
+
+  </header>
+
+  <section class="features-section">
+    <h2>Our Features</h2>
+    <div class="features-grid">
+      <%= link_to products_path, class: "feature" do %>
+        <h3>Products</h3>
+        <p>See our amazing products that solve real-world problems</p>
+      <% end %>
+      <%= link_to dashboard_index_path, class: "feature" do%>
+        <h3>DashBoard</h3>
+        <p>See our amazing dashboard</p>
+      <% end %>
+      <%= link_to sales_path, class: "feature" do%>
+        <h3>Sales</h3>
+        <p>Register a new sale</p>
+      <% end %>
+    </div>
+  </section>
+
+  <section class="testimonial-section">
+    <h2>What Our Users Say</h2>
+    <blockquote>
+      <p>"This is the best application I have ever used. It changed my life!"</p>
+      <footer>- A Happy User</footer>
+    </blockquote>
+  </section>
+</main>

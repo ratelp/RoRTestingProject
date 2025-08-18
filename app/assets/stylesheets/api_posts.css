@@ -1,0 +1,123 @@
+/*
+ * Styles for the API Posts Form (New/Edit)
+ */
+
+.api-post-form-container {
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 2.5rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border: 1px solid #e9ecef;
+}
+
+.api-post-form-container h1 {
+  text-align: center;
+  font-size: 2.25rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+/* Reusing error message styles from other forms */
+.error-messages {
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 5px;
+  border: 1px solid #f5c2c7;
+  background-color: #f8d7da;
+  color: #842029;
+}
+
+.error-messages h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.error-messages ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.api-post-form .field {
+  margin-bottom: 1.5rem;
+}
+
+.api-post-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.api-post-form input[type="text"],
+.api-post-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.api-post-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.api-post-form input[type="text"]:focus,
+.api-post-form textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+.api-post-form .actions {
+  margin-top: 2rem;
+}
+
+.api-post-form .action-button {
+  width: 100%;
+}
+
+/* Back link styling */
+.api-post-form-container .back-link-container {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.api-post-form-container .back-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.api-post-form-container .back-link:hover {
+  text-decoration: underline;
+}
+
+/* Reusable Action Buttons */
+.action-button {
+  display: inline-block;
+  padding: 12px 24px;
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+  text-align: center;
+}
+
+.action-button:hover {
+  transform: translateY(-2px);
+}
+
+.save-button { background-color: #28a745; }
+.save-button:hover { background-color: #218838; }

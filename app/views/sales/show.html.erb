@@ -1,0 +1,33 @@
+<div class="sale-show-container">
+  <% if notice %>
+    <div class="flash-messages">
+      <p class="flash notice"><%= notice %></p>
+    </div>
+  <% end %>
+
+  <h1 class="sale-title">Sale Details</h1>
+
+  <div class="sale-details">
+    <div class="detail-item">
+      <span class="label">Product:</span>
+      <span class="value"><%= @sale.product.name %></span>
+    </div>
+    <div class="detail-item">
+      <span class="label">Quantity:</span>
+      <span class="value"><%= @sale.quantity %></span>
+    </div>
+    <div class="detail-item total">
+      <span class="label">Total Price:</span>
+      <span class="value"><%= number_to_currency(@sale.total) %></span>
+    </div>
+  </div>
+
+  <div class="sale-actions">
+    <%= link_to "Edit Sale", edit_sale_path(@sale), class: "action-button edit-button" %>
+    <%= button_to "Destroy Sale", @sale, method: :delete, class: "action-button destroy-button", data: { turbo_confirm: "Are you sure?" } %>
+  </div>
+
+  <div class="back-link-container">
+    <%= link_to "← Back to all sales", sales_path, class: "back-link" %>
+  </div>
+</div>

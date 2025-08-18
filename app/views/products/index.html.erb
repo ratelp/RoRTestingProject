@@ -1,0 +1,42 @@
+<div class="products-container">
+  <div class="products-header">
+    <h1>Products</h1>
+    <%= link_to "New product", new_product_path, class: "new-product-link" %>
+  </div>
+
+  <%= form_with(url: products_path, method: :get, local: true, class: "search-form") do %>
+    <%= label_tag :search, "Search by name" %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search" %>
+  <% end %>
+
+  <div id="products">
+    <% if @products.any? %>
+      <% @products.each do |product| %>
+        <%= link_to product, class: "product-card" do %>
+          <span class="product-name"><%= product.name %></span>
+          <span class="price"><%= number_to_currency(product.price) %></span>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p class="no-products-message">No products found.</p>
+    <% end %>
+  </div>
+
+  <% if @total_pages.to_i > 1 %>
+    <div class="pagination-controls">
+      <% if @page > 1 %>
+        <%= link_to "←", url_for(request.params.merge(page: @page - 1)), class: "pagination-arrow" %>
+      <% else %>
+        <span class="pagination-arrow disabled">←</span>
+      <% end %>
+      <span class="page-info">Page <%= @page %> of <%= @total_pages %></span>
+      <% if @page < @total_pages %>
+        <%= link_to "→", url_for(request.params.merge(page: @page + 1)), class: "pagination-arrow" %>
+      <% else %>
+        <span class="pagination-arrow disabled">→</span>
+      <% end %>
+    </div>
+  <% end %>
+
+</div>

@@ -1,0 +1,18 @@
+<div class="product-show-container">
+
+  <h1 class="product-title"><%= @product.name %></h1>
+
+  <div class="product-details">
+    <p class="product-price"><%= number_to_currency(@product.price) %></p>
+    <p class="product-description"><%= @product.description %></p>
+  </div>
+
+  <div class="product-actions">
+    <%= link_to "Edit Product", edit_product_path(@product), class: "action-button edit-button" %>
+    <%= button_to "Destroy Product", @product, method: :delete, class: "action-button destroy-button", data: { turbo_confirm: "Are you sure?" } %>
+  </div>
+
+  <div class="back-link-container">
+    <%= link_to "← Back to all products", products_path, class: "back-link" %>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+<div class="dashboard-container">
+  <h1>Sales Dashboard</h1>
+
+  <%# Note: You'll need to provide these values from your DashboardController %>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <h3>Total Revenue</h3>
+      <p class="value"><%= number_to_currency(@total_revenue || 0) %></p>
+    </div>
+    <div class="stat-card">
+      <h3>Total Sales</h3>
+      <p class="value"><%= @total_sales || 0 %></p>
+    </div>
+    <div class="stat-card">
+      <h3>Average Sale</h3>
+      <p class="value"><%= number_to_currency(@average_sale || 0) %></p>
+    </div>
+  </div>
+
+  <div class="chart-container">
+    <canvas id="salesChart"></canvas>
+  </div>
+</div>
+
+<script type="module">
+  import {
+    Chart,
+    BarController,
+    BarElement,
+    CategoryScale,
+    LinearScale,
+    Tooltip,
+    Legend
+  } from "chart.js";
+
+  // When using Chart.js via an import map, you must manually register the
+  // components (controllers, elements, scales, plugins) that your chart requires.
+  Chart.register(BarController, BarElement, CategoryScale, LinearScale, Tooltip, Legend);
+
+  const cleanupChart = () => {
+    if (window.dashboardChart) {
+      window.dashboardChart.destroy();
+      window.dashboardChart = null;
+    }
+    document.removeEventListener('turbo:before-cache', cleanupChart);
+  };
+
+  document.removeEventListener('turbo:before-cache', cleanupChart);
+  document.addEventListener('turbo:before-cache', cleanupChart);
+
+  if (window.dashboardChart) {
+    window.dashboardChart.destroy();
+  }
+
+  const ctx = document.getElementById('salesChart');
+  window.dashboardChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: <%= raw @labels.to_json %>,
+      datasets: [{
+        label: 'Total in Sales by day',
+        data: <%= raw @data.map(&:to_f).to_json %>,
+        backgroundColor: 'rgba(54, 162, 235, 0.5)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: { beginAtZero: true }
+      }
+    }
+  });
+</script>

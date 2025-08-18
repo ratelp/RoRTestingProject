@@ -1,0 +1,33 @@
+<div class="sales-container">
+
+  <div class="sales-header">
+    <h1>Sales</h1>
+    <%= link_to "New Sale", new_sale_path, class: "new-sale-link" %>
+  </div>
+
+  <div id="sales" class="sales-list">
+    <% @sales.each do |sale| %>
+      <div class="sale-card">
+        <%= render sale %>
+        <%= link_to "View Details", sale, class: "action-link" %>
+      </div>
+    <% end %>
+  </div>
+
+  <% if @total_pages.to_i > 1 %>
+    <div class="pagination-controls">
+      <% if @page > 1 %>
+        <%= link_to "←", url_for(request.params.merge(page: @page - 1)), class: "pagination-arrow" %>
+      <% else %>
+        <span class="pagination-arrow disabled">←</span>
+      <% end %>
+      <span class="page-info">Page <%= @page %> of <%= @total_pages %></span>
+      <% if @page < @total_pages %>
+        <%= link_to "→", url_for(request.params.merge(page: @page + 1)), class: "pagination-arrow" %>
+      <% else %>
+        <span class="pagination-arrow disabled">→</span>
+      <% end %>
+    </div>
+  <% end %>
+
+</div>

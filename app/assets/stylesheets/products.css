@@ -1,0 +1,368 @@
+/* Main container for the products page */
+.products-container {
+  max-width: 800px; /* A bit wider for a list view */
+  margin: 2rem auto;
+  padding: 0 2rem; /* Consistent horizontal padding */
+}
+
+.products-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr; /* 3-column layout */
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.products-header h1 {
+  grid-column: 2; /* Center column */
+  justify-self: center;
+  margin: 0;
+  color: #333;
+}
+
+.products-header .new-product-link {
+  grid-column: 3; /* Right column */
+  justify-self: end;
+}
+
+/* Search Form Styling */
+.search-form {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.search-form label {
+  font-weight: 600;
+  color: #333;
+}
+
+.search-form input[type="text"] {
+  flex-grow: 1; /* Make the input take up available space */
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-form input[type="text"]:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+.search-form input[type="submit"] {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.search-form input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Product List Styling */
+#products {
+  display: grid;
+  gap: 1rem;
+}
+
+.no-products-message {
+  text-align: center;
+  padding: 2rem;
+  color: #6c757d;
+  background-color: #f8f9fa;
+  border: 1px dashed #dee2e6;
+  border-radius: 8px;
+}
+
+.product-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none; /* Remove underline from link */
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.product-card .product-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #007bff;
+}
+
+.product-card .price {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #28a745; /* A nice green for price */
+}
+
+/* Pagination Controls */
+.pagination-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.pagination-arrow {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #007bff;
+  text-decoration: none;
+  padding: 0.25rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.pagination-arrow:hover {
+  background-color: #e9ecef;
+}
+
+.pagination-arrow.disabled {
+  color: #adb5bd;
+  cursor: not-allowed;
+}
+
+.page-info {
+  font-weight: 600;
+  color: #333;
+}
+
+.new-product-link {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #28a745; /* Green for "New" or "Create" actions */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.new-product-link:hover {
+  background-color: #218838; /* Darker green */
+}
+
+/*
+ * Styles for the Product Show Page
+ */
+
+.product-show-container {
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 2.5rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border: 1px solid #e9ecef;
+}
+
+.product-show-container .product-title {
+  text-align: center;
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.product-show-container .product-details {
+  margin: 2rem 0;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.product-show-container .product-price {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #28a745; /* Green from index page */
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.product-show-container .product-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #555;
+}
+
+.product-show-container .product-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.product-show-container .back-link-container {
+  text-align: center;
+}
+
+.product-show-container .back-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/*
+ * Reusable Action Buttons
+ */
+.action-button {
+  display: inline-block;
+  padding: 12px 24px;
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+  text-align: center;
+}
+
+.action-button:hover {
+  transform: translateY(-2px);
+}
+
+/* Color Modifiers */
+.edit-button {
+  background-color: #007bff; /* Blue */
+}
+.edit-button:hover {
+  background-color: #0056b3;
+}
+
+.destroy-button {
+  background-color: #dc3545; /* Red */
+}
+.destroy-button:hover {
+  background-color: #c82333;
+}
+
+.save-button {
+  background-color: #28a745; /* Green */
+}
+.save-button:hover {
+  background-color: #218838;
+}
+
+/*
+ * Styles for the Product Form (New/Edit)
+ */
+
+.product-form-container {
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 2.5rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border: 1px solid #e9ecef;
+}
+
+.product-form-container h1 {
+  text-align: center;
+  font-size: 2.25rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.product-form-container .back-link-container  {
+  text-align: center;
+
+}
+
+.product-form-container .back-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Form Error Messages */
+.error-messages {
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 5px;
+  border: 1px solid #f5c2c7;
+  background-color: #f8d7da;
+  color: #842029;
+}
+
+.error-messages h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.error-messages ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.product-form .field {
+  margin-bottom: 1.5rem;
+}
+
+.product-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.product-form input[type="text"],
+.product-form input[type="number"],
+.product-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.product-form input[type="text"]:focus,
+.product-form input[type="number"]:focus,
+.product-form textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+.product-form .actions {
+  margin-top: 2rem;
+}
+
+.product-form .action-button {
+  width: 100%;
+}

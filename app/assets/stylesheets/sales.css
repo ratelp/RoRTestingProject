@@ -1,0 +1,304 @@
+/*
+ * Styles for the Sales index page.
+ */
+
+.sales-container {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.sales-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr; /* 3-column layout for centering */
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.sales-header h1 {
+  grid-column: 2; /* Place title in the center column */
+  justify-self: center; /* Ensure it's centered within the column */
+  margin: 0; /* Remove default h1 margin */
+  color: #333;
+}
+
+.new-sale-link {
+  grid-column: 3; /* Place button in the right column */
+  justify-self: end; /* Align button to the far right */
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #28a745; /* Green for "New" or "Create" actions */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.new-sale-link:hover {
+  background-color: #218838; /* Darker green */
+}
+
+/* Sales List Styling */
+.sales-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.sale-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  border: 1px solid #e9ecef;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sale-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.sale-card .action-link {
+  font-weight: 600;
+  color: #007bff;
+  text-decoration: none;
+  white-space: nowrap; /* Prevents the link from wrapping */
+  margin-left: 2rem;
+}
+
+.sale-card .action-link:hover {
+  text-decoration: underline;
+}
+
+/*
+ * Pagination Controls for Sales List
+ */
+
+.pagination-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2.5rem;
+  padding: 0.5rem 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.pagination-arrow {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #007bff;
+  text-decoration: none;
+  padding: 0.25rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.pagination-arrow:hover {
+  background-color: #e9ecef;
+}
+
+.pagination-arrow.disabled {
+  color: #adb5bd;
+  cursor: not-allowed;
+}
+
+.page-info {
+  font-weight: 600;
+  color: #333;
+}
+
+/*
+ * Styles for the Sale Show Page
+ */
+
+.sale-show-container {
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 2.5rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border: 1px solid #e9ecef;
+}
+
+.sale-show-container .sale-title {
+  text-align: center;
+  font-size: 2.25rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.sale-show-container .sale-details {
+  margin: 2rem 0;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #e0e0e0;
+  display: grid;
+  gap: 1rem;
+}
+
+.sale-show-container .detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+.sale-show-container .detail-item .label {
+  font-weight: 600;
+  color: #555;
+}
+
+.sale-show-container .detail-item .value {
+  font-weight: 500;
+  color: #333;
+}
+
+.sale-show-container .detail-item.total .value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #28a745;
+}
+
+.sale-show-container .sale-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.sale-show-container .back-link-container {
+  text-align: center;
+}
+
+.sale-show-container .back-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+
+/* Reusable Action Buttons */
+.action-button {
+  display: inline-block;
+  padding: 12px 24px;
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+  text-align: center;
+}
+
+.action-button:hover {
+  transform: translateY(-2px);
+}
+
+.edit-button { background-color: #007bff; }
+.edit-button:hover { background-color: #0056b3; }
+.destroy-button { background-color: #dc3545; }
+.destroy-button:hover { background-color: #c82333; }
+
+.save-button { background-color: #28a745; }
+.save-button:hover { background-color: #218838; }
+
+/*
+ * Styles for the Sale Form (New/Edit)
+ */
+
+.sale-form-container {
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 2.5rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border: 1px solid #e9ecef;
+}
+
+.sale-form-container h1 {
+  text-align: center;
+  font-size: 2.25rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.sale-form-container .back-link-container {
+  text-align: center;
+}
+
+.sale-form-container .back-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+
+/* Form Error Messages (reusing product form styles) */
+.error-messages {
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 5px;
+  border: 1px solid #f5c2c7;
+  background-color: #f8d7da;
+  color: #842029;
+}
+
+.error-messages h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.error-messages ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.sale-form .field {
+  margin-bottom: 1.5rem;
+}
+
+.sale-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.sale-form select,
+.sale-form input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: #fff; /* Ensure select has a white background */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sale-form select:focus,
+.sale-form input[type="number"]:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+.sale-form .actions {
+  margin-top: 2rem;
+}
+
+.sale-form .action-button {
+  width: 100%;
+}
